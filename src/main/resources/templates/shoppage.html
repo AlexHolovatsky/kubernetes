@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/shopstyle.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/profile.css}" />
+</head>
+<body>
+<header th:insert="header :: header"></header>
+
+<div class="hamburger-menu">
+    <input id="menu__toggle" type="checkbox" />
+    <label class="menu__btn" for="menu__toggle">
+        <span></span>
+    </label>
+
+    <ul class="menu__box">
+        <li><a class="menu__item" href="#">Home</a></li>
+        <li><a class="menu__item" href="#">About</a></li>
+        <li><a class="menu__item" href="#">Team</a></li>
+        <li><a class="menu__item" href="#">Contact</a></li>
+        <li><a class="menu__item" href="#">Twitter</a></li>
+    </ul>
+</div>
+<div class="container">
+    <main>
+        <div th:each="product : ${approvedGoods}" class="product">
+            <a th:href="@{/shop/product/__${product.id}__}">
+                <img th:src="@{'/images/' + ${product.previewImageId}}" alt="Product Image">
+                <h2 th:text="${product.title}">Товар</h2>
+                <p th:text="${product.description}">Опис</p>
+            </a>
+        </div>
+    </main>
+
+</div>
+
+<!--<div th:each="goods : ${approvedGoods}">-->
+<!--    <div>-->
+<!--        <h2 th:text="${goods.title}"></h2>-->
+<!--        <p th:text="${goods.description}"></p>-->
+<!--        <p th:text="${'Price: $' + goods.price}"></p>-->
+
+<!--        &lt;!&ndash; Перевірте, чи у товару є зображення &ndash;&gt;-->
+<!--        <div th:if="${goods.images.size() > 0}">-->
+<!--            &lt;!&ndash; Перша картинка використовується як ескіз (preview) &ndash;&gt;-->
+<!--            <img th:src="@{'/images/' + ${goods.previewImageId}}" alt="Preview Image">-->
+
+<!--            &lt;!&ndash; Показати інші зображення товару &ndash;&gt;-->
+<!--            <div th:each="image : ${goods.images}" th:unless="${image.isPreviewImage}">-->
+<!--                <img th:src="@{'/images/' + ${image.id}}" alt="Product Image">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+</body>
+</html>

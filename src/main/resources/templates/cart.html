@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/profile.css}"/>
+</head>
+<body>
+<header th:insert="header :: header"></header>
+<div>
+    <!--    <p th:text="${user.id}">$Price</p>-->
+    <p th:text="${user.fullName}"></p>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each="cartItem : ${cartItems}">
+            <td th:text="${cartItem.goods.title}"></td>
+            <td th:text="${cartItem.goods.price}"></td>
+            <td>
+                <form th:action="@{/cart/remove/{cartId}(cartId=${cartItem.id})}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/cart/buy/{cartId}(cartId=${cartItem.id})}" method="post">
+                    <button type="submit">Buy</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <form th:action="@{/cart/buyAll}" method="post">
+        <input type="hidden" name="newOrderedStatus" value="true">
+        <button type="submit">Buy all</button>
+    </form>
+    <a href="/order">Order</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Заголовок за замовчуванням</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/profile.css}"/>
+    <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/shopstyle.css}"/>
+</head>
+<body>
+<header th:insert="header :: header"></header>
+<div class="main-container">
+    <h1>
+        <p>
+            Hello <span th:if="${isAuthenticated}" th:text="${user.email}"></span>
+        </p>
+    </h1>
+    <a href="/login">Page2</a>
+    <a href="/shop">Shop</a>
+</div>
+
+</body>
+</html>

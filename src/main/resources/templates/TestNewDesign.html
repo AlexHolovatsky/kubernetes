@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/NewDesign.css}"/>
+</head>
+<body>
+<header>
+    <img id="logo" th:src="@{/images/sections/Shop App.png}" alt="Your Logo">
+    <div id="profile-info">
+        <a href="#">
+            <span id="set-lang-eng">eng</span>
+        </a>
+        <a href="#">
+            <img id="line-photo" th:src="@{/images/sections/line.png}" alt="Profile Photo">
+        </a>
+        <a href="#">
+            <span id="set-lang-ukr">ukr</span>
+        </a>
+        <a href="#">
+            <img id="message-photo" th:src="@{/images/sections/message.png}" alt="Profile Photo">
+        </a>
+        <a href="#">
+            <span id="message-page">Повідомлення</span>
+        </a>
+        <a href="#">
+            <img id="like-photo" th:src="@{/images/sections/like.png}" alt="Profile Photo">
+        </a>
+        <a href="#">
+            <span id="like-page">Обране</span>
+        </a>
+        <a href="profile.html">
+            <img id="profile-photo" th:src="@{/images/sections/profile.png}" alt="Profile Photo">
+        </a>
+        <a href="profile.html">
+            <span id="profile-name">Ваш профіль</span>
+        </a>
+    </div>
+    <button id="add-ad-button">Додати оголошення</button>
+</header>
+<div class="search-block">
+    <div id="search-bar">
+        <form action="/shop" method="get"> <!-- Додайте форму для введення параметра пошуку -->
+            <input type="text" id="search-input" name="search" placeholder="Пошук..." th:value="${search}">
+            <button id="search-button" type="submit">Пошук</button>
+        </form>
+    </div>
+</div>
+<div id="sections">
+    <h2>Розділи</h2>
+    <div class="sections-container">
+        <a href="#" class="section">
+            <img th:src="@{/images/sections/dom-i-sad-899-1x.png}" alt="Section 1">
+            <p>Розділ 1</p>
+        </a>
+        <a href="#" class="section">
+            <img th:src="@{/images/sections/elektronika-37-1x.png}" alt="Section 2">
+            <p>Розділ 2</p>
+        </a>
+        <a href="#" class="section">
+            <img th:src="@{/images/sections/hobbi-otdyh-i-sport-903-1x.png}" alt="Section 1">
+            <p>Розділ 3</p>
+        </a>
+        <a href="#" class="section">
+            <img th:src="@{/images/sections/moda-i-stil-891-1x.png}" alt="Section 2">
+            <p>Розділ 4</p>
+        </a>
+        <a href="#" class="section">
+            <img th:src="@{/images/sections/nedvizhimost-1-1x.png}" alt="Section 1">
+            <p>Розділ 5</p>
+        </a>
+        <a href="#" class="section">
+            <img th:src="@{/images/sections/transport-1532-1x.png}" alt="Section 2">
+            <p>Розділ 6</p>
+        </a>
+        <a href="#" class="section">
+            <img th:src="@{/images/sections/zhivotnye-35-1x.png}" alt="Section 1">
+            <p>Розділ 7</p>
+        </a>
+    </div>
+</div>
+<div id="ads-background">
+    <div id="ads">
+        <div th:each="product : ${searchResults}" class="advertisement">
+            <a th:href="@{/shop/product/__${product.id}__}">
+                <img th:src="@{'/images/' + ${product.previewImageId}}" alt="Product Image">
+                <div class="advertisement-content">
+                    <h3 th:text="${product.title}">Товар</h3>
+                    <p th:text="'Ціна: $' + ${product.price}"></p>
+                    <p th:text="'Дата розміщення: ' + ${product.dateOfCreate}"></p>
+                    <p th:text="${product.description}"></p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

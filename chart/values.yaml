@@ -1,0 +1,7 @@
+container:
+  image: alexholovatskyi/myapp-v2:latest
+
+replicaCount: 2
+
+ingress:
+  enabled: true

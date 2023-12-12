@@ -1,0 +1,266 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #002f34;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 50px;
+}
+
+a {
+    text-decoration: none; /* Відключити підкреслення */
+    color: inherit; /* Використовувати колір звичайного тексту (успадковування від батьківського елемента) */
+}
+
+/* Додатковий стиль для посилань, які є дочірніми елементами блоку з id "profile-info" */
+#profile-info a {
+    color: #000; /* Задати власний колір для посилань в блоку "profile-info" */
+}
+
+#logo {
+    width: 150px;
+    height: 100px;
+    margin-right: 60px;
+}
+
+#add-ad-button {
+    background-color: #ffffff;
+    color: #002f34;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 14px;
+    margin-left: 60px;
+}
+
+#add-ad-button:hover {
+    background-color: #002f34;
+    color: #ffffff;
+    border: 2px solid white;
+}
+
+#profile-info {
+    display: flex;
+    align-items: center;
+}
+
+#profile-name {
+    margin-left: 10px;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 14px;
+}
+
+#profile-photo {
+    width: 25px;
+    height: 25px;
+    border-radius: 10%;
+    margin-top: 5px;
+}
+
+#like-photo {
+    width: 25px;
+    height: 25px;
+    border-radius: 10%;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+#profile-info a {
+    text-decoration: none;
+    color: white;
+}
+
+#message-photo {
+    width: 25px;
+    height: 25px;
+    border-radius: 10%;
+    margin-top: 5px;
+    margin-left: 60px;
+}
+
+#message-page {
+    margin-left: 10px;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 14px;
+    margin-right: 60px;
+}
+
+#message-page:hover {
+    color:#007D89
+}
+
+#like-page:hover {
+    color:#007D89
+}
+
+#profile-name:hover {
+    color:#007D89
+}
+
+#like-page {
+    margin-left: 10px;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 14px;
+    margin-right: 60px;
+}
+
+#line-photo {
+    width: 25px;
+    height: 25px;
+    border-radius: 10%;
+    margin-top: 5px;
+}
+
+#set-lang-eng {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 14px;
+}
+
+#set-lang-ukr {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 14px;
+}
+
+#set-lang-eng:hover {
+    color:#007D89
+}
+#set-lang-ukr:hover {
+    color:#007D89
+}
+
+/* content */
+
+#search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Відцентрувати по горизонталі */
+    margin-top: 0px; /* Задайте відступ від header */
+    background-color: #f0f0f0;
+    padding: 40px;
+}
+
+#search-input {
+    flex-grow: 0; /* Зробити поле пошуку менш гнучким */
+    width: 450px; /* Задайте бажану ширину */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+#search-button {
+    background-color: #002f34;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: 1px solid #002f34;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: #003f49;
+    border: 1px solid #003f49;
+}
+
+#sections {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Змінено на колонку, щоб розмістити заголовок над секціями */
+    align-items: center; /* Додано це для центрування заголовка */
+}
+
+#sections h2 {
+    margin-bottom: 20px;
+}
+
+.sections-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.section {
+    margin-top: 20px;
+    margin-right: 30px;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.section:hover {
+    transform: scale(1.1);
+}
+
+.section img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+}
+
+
+#ads-background {
+    background: linear-gradient(to right, #f0f0f0, #f0f0f0);
+    /*max-width: 600px;*/
+    margin: 0 auto;
+}
+
+#ads {
+    margin-top: 30px;
+    text-align: center;
+    max-width: 1000px; /* Максимальна ширина контейнера оголошень */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+
+}
+
+
+.advertisement {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #fff;
+    transition: transform 0.3s, background-color 0.3s;
+    overflow: hidden;
+}
+
+.advertisement:hover {
+    transform: scale(1.1); /* Збільшення блоку при наведенні */
+    background-color: #666; /* Темніший колір фону при наведенні */
+    color: #fff;
+}
+
+.advertisement img {
+    /*height: 150px;*/
+    float: left;
+    width: 200px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.advertisement-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.advertisement h3 {
+    margin-top: 0;
+}

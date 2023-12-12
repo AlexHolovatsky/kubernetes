@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp1-helm-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp-1-helm
+  template:
+    metadata:
+      labels:
+        app: myapp-1-helm
+    spec:
+      containers:
+      - name: myapp-container
+        image: alexholovatskyi/myapp-v2:latest
+        ports:
+        - containerPort: 8080

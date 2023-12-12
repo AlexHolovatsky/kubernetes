@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}"/>
+    <link rel="stylesheet" th:href="@{/css/header.css}"/>
+</head>
+<body>
+<header th:insert="header :: header"></header>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Active</th>
+        <th>Role</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.fullName}"></td>
+        <td th:text="${user.phoneNumber}"></td>
+        <td th:text="${user.active}"></td>
+        <td th:each="role : ${user.roles}" th:text="${role}"></td>
+        <td>
+            <form th:action="@{'/admin/user/ban/' + ${user.id}}" method="post">
+                <button type="submit">Ban</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{'/admin/user/unban/' + ${user.id}}" method="post">
+                <button type="submit">Unban</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{'/admin/user/op/' + ${user.id}}" method="post">
+                <button type="submit">Opp</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{'/admin/user/unop/' + ${user.id}}" method="post">
+                <button type="submit">Unopp</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Approved</th>
+        <th>Reject</th>
+    </tr>
+    <tr th:each="product : ${unapprovedGoods}">
+        <td><a th:href="@{/shop/product/__${product.id}__}" th:text="${product.title}">Товар</a></td>
+        <td th:text="${product.description}">Опис</td>
+        <td>
+            <form th:action="@{/admin/goods/approve/__${product.id}__}" method="post">
+                <button type="submit">Approve</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/admin/goods/reject/__${product.id}__}" method="post">
+                <button type="submit">Reject</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

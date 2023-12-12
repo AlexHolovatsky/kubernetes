@@ -1,0 +1,36 @@
+spring:
+  freemarker:
+    expose-request-attributes: 'true'
+  mail:
+    host: smtp.gmail.com
+    username: olexandr2803@gmail.com
+    port: '587'
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    password: dioj xzzj ebhn urul
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    password: Olexandr2003
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: SA
+    url: jdbc:sqlserver://192.168.33.10:1433;databaseName=my_db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+  thymeleaf:
+    enabled: 'true'
+    prefix: classpath:/templates/
+    suffix: .html
+logging:
+  config: classpath:logback.xml
+  level:
+    org.springframework.web: DEBUG

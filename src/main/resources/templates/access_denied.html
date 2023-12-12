@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}">Заголовок за замовчуванням</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/profile.css}" />
+</head>
+<body>
+<h1>Access Denied!</h1>
+<p th:text="${errorMessage}">You don't have permission to view this page.</p>
+</body>
+</html>

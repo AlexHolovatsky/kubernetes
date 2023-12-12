@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/profile.css}"/>
+    <link rel="stylesheet" th:href="@{/css/productdetail.css}"/>
+</head>
+<body>
+
+<header th:insert="header :: header"></header>
+<div class="container-details">
+    <main>
+        <div class="gallery">
+            <div class="main-photo-wrapper">
+                <img class="main-photo-img" th:src="@{'/images/' + ${product.previewImageId}}" alt="Product Image">
+            </div>
+            <div class="small-photos">
+                <div th:each="image : ${product.images}">
+                    <img class="sub-photo-img" th:src="@{'/images/' + ${image.id}}" alt="Product Image">
+                </div>
+            </div>
+        <div class="product-details">
+            <h1 th:text="${product.title}">Назва товару</h1>
+            <p th:text="${product.price}">$Price</p>
+            <p th:text="${product.description}">Опис товару</p>
+            <form th:action="@{'/cart/add/' + ${user.id} + '/' + ${product.id}}" method="post">
+                <button type="submit">Купити</button>
+                <p th:text="${user.id}"></p>
+                <a href="/cart"> !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</a>
+                <p th:text="${user.email}"></p>
+            </form>
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
